@@ -36,9 +36,8 @@ router.get('/me', VerifyToken, function(req, res, next) {
       if (!user) return res.status(404).send("No user found.");
 
       res.status(200).send(user);
-    });
-  });
-});
+      })
+})
 
 router.post('/login', function(req, res) {
   User.findOne({ email: req.body.email }, function (err, user) {
