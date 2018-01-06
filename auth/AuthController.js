@@ -10,7 +10,6 @@ const config = require ('../config')
 var VerifyToken = require('./VerifyToken');
 
 router.post('/register', function(req, res) {
-
   var hashedPassword = bcrypt.hashSync(req.body.password, 8);
 
   User.create({
@@ -29,15 +28,13 @@ router.post('/register', function(req, res) {
 });
 
 router.get('/me', VerifyToken, function(req, res, next) {
-    User.findById(decoded.id,
-      { password: 0 },
-      function (err, user) {
-      if (err) return res.status(500).send("There was a problem finding the user.");
-      if (!user) return res.status(404).send("No user found.");
+  User.findById(req.userId, { password: 0 }, function (err, user) {
+    if (err) return res.status(500).send("There was a problem finding the user.");
+    if (!user) return res.status(404).send("No user found.");
 
-      res.status(200).send(user);
-      })
-})
+    res.status(200).send(user);
+  });
+});
 
 router.post('/login', function(req, res) {
   User.findOne({ email: req.body.email }, function (err, user) {
