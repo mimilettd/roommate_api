@@ -11,7 +11,6 @@ const FacebookStrategy = require ('passport-facebook')
 //import { facebook } from './facebook';
 const facebook = require('./facebook')
 const jwt = require('jsonwebtoken')
-const config = require ('./config')
 
 // Transform Facebook profile because Facebook and Google profile objects look different
 // and we want to transform them into user objects that have the same set of attributes
@@ -42,7 +41,7 @@ passport.use(new FacebookStrategy(facebook,
                     var token = jwt.sign({ id: user._id }, config.secret, {
                       expiresIn: 86400 // expires in 24 hours
                     });
-                    return done(null, user, token); // user found, return that user
+                    return done(null, {user: user, token: token}); // user found, return that user
                 } else {
                     // if there is no user found with that facebook id, create them
                     var newUser            = new User();
