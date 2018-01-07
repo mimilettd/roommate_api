@@ -1,7 +1,7 @@
 const app = require('./app');
 const port = process.env.PORT || 3000;
 const User = require('./user/User')
-import express from 'express';
+//import express from 'express';
 import passport from 'passport';
 import FacebookStrategy from 'passport-facebook';
 // Import Facebook and Google OAuth apps configs
