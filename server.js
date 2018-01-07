@@ -42,7 +42,7 @@ passport.use(new FacebookStrategy(facebook,
                     var token = jwt.sign({ id: user._id }, config.secret, {
                       expiresIn: 86400 // expires in 24 hours
                     });
-                    return done(null, {user: user, token: token}); // user found, return that user
+                    return done(null, token); // user found, return that user
                 } else {
                     // if there is no user found with that facebook id, create them
                     var newUser            = new User();
@@ -65,7 +65,7 @@ passport.use(new FacebookStrategy(facebook,
                         var token = jwt.sign({ id: newUser._id }, config.secret, {
                           expiresIn: 86400 // expires in 24 hours
                         });
-                        return done(null, newUser, token);
+                        return done(null, token);
                     });
                 }
 
