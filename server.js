@@ -2,6 +2,7 @@ const app = require('./app');
 const port = process.env.PORT || 3000;
 const User = require('./user/User')
 //import express from 'express';
+const express = require('express')
 const passport = require('passport')
 //import passport from 'passport';
 const FacebookStrategy = require ('passport-facebook')
