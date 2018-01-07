@@ -11,7 +11,7 @@ const FacebookStrategy = require ('passport-facebook')
 //import { facebook } from './facebook';
 const facebook = require('./facebook')
 const jwt = require('jsonwebtoken')
-const config = require ('../config')
+const config = require ('./config')
 
 // Transform Facebook profile because Facebook and Google profile objects look different
 // and we want to transform them into user objects that have the same set of attributes
