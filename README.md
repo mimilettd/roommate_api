@@ -37,6 +37,7 @@ name, email, password, gender, about, location, picture, occupation, smoker, pet
 ```
 { name: name, email: email, password: password }
 ```
+  * Parameters MUST be passed through the headers, not through the body.
   * If user is successfully updated (name, email, and password are required fields), a <b>JSON web token</b> will be returned. If the user is not successfully updated, a 500 status code will be returned.
 
 #### `POST /api/auth/login`
