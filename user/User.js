@@ -13,7 +13,11 @@ var UserSchema = new mongoose.Schema({
   facebook_id: { type: Number },
   smoker: { type: String },
   pet_owner: { type: String },
-  personality: { type: String }
+  personality: { type: String },
+  smoker_ok: { type: String },
+  pet_ok: { type: String },
+  personality_preference: { type: String },
+  gender_preference: { type: String }
 });
 
 mongoose.model('User', UserSchema);
